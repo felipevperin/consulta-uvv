@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Início";
+}
+
+<div class="text-center">
+    <h1 class="display-5">Sistema de Gestão de Consultas UVV</h1>
+    <p class="lead">Cadastre-se, faça login e gerencie suas consultas de forma simples e segura.</p>
+
+    @if (User.Identity == null || !User.Identity.IsAuthenticated)
+    {
+        <a asp-controller="Conta" asp-action="Cadastro" class="btn btn-primary">Criar conta</a>
+        <a asp-controller="Conta" asp-action="Login" class="btn btn-outline-secondary">Entrar</a>
+    }
+    else
+    {
+        <a asp-controller="Consultas" asp-action="Index" class="btn btn-primary">Ver minhas consultas</a>
+    }
+</div>
